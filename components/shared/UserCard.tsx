@@ -9,7 +9,7 @@ interface Props {
     name:string
     username:string
     imgUrl:string
-    persionType:string
+    personType:string
 }
 
 const UserCard = ({
@@ -17,9 +17,20 @@ const UserCard = ({
     name,
     username,
     imgUrl,
-    persionType }: Props) => {
+    personType }: Props) => {
 
-        const router = useRouter()
+    const router = useRouter()
+    
+
+    
+
+    const viewProfile = (id: string) => {
+        if (personType === 'Community') {
+           router.push(`/communities/${id}`)
+        } else {
+            router.push(`/profile/${id}`)
+        }
+    }
         
     return (
         <article className="user-card">
@@ -30,7 +41,7 @@ const UserCard = ({
                     <p className="text-small-medium text-gray-1">@{username}</p>
                 </div>
             </div>
-            <Button className="user-card_btn" onClick={()=> router.push(`/profile/${id}`)}>View</Button>
+            <Button className="user-card_btn" onClick={()=> viewProfile(id)}>View</Button>
         </article>
     );
 };

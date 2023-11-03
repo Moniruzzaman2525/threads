@@ -14,15 +14,17 @@ async function Page({ params }: { params: { id: string } }) {
     if (!user) return null;
 
     const communityDetails = await fetchCommunityDetails(params.id)
+ 
+    
 
     return (
         <section>
             <ProfileHeader
                 accountId={communityDetails.id}
-                auhtUserId={user.id}
+                authUserId={user.id}
                 name={communityDetails.name}
                 username={communityDetails.username}
-                imagUrl={communityDetails.image}
+                imgUrl={communityDetails.image}
                 bio={communityDetails.bio}
                 type="Community"
             />
@@ -72,7 +74,7 @@ async function Page({ params }: { params: { id: string } }) {
                                             name={member.name}
                                             username={member.username}
                                             imgUrl={member.image}
-                                            persionType="User"
+                                            personType="User"
                                         />
                                     ))}
                                 </section>
