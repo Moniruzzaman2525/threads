@@ -14,7 +14,7 @@ async function Page() {
 
     const result = await fetchCommunities({
         searchString: '',
-        pagenNumber: 1 ,
+        pageNumber: 1 ,
         pageSize: 25,
     })
     return (
@@ -34,7 +34,6 @@ async function Page() {
                                 bio={community.bio}
                                 members={community.members}
                                 imgUrl={community.image}
-                                persionType="User"
                             />
                         ))
                     }
